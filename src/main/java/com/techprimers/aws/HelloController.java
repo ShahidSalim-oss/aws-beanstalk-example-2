@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @GetMapping
-    public JSONObject hello() {
-        return new JSONObject("{'name':'helloworld','time':'123123123'}");
+    public String hello() {
+        return "Hello Shahid"+ System.currentTimeMillis();
     }
 
 }
