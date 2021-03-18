@@ -17,7 +17,7 @@ public class HelloController {
 	}
      @RequestMapping("/student")
      public Student getStudent(){
-	return new Student("shahid",30,"germany");
+	return new Student("mark",30,"pakistan");
 	}
 
     }
