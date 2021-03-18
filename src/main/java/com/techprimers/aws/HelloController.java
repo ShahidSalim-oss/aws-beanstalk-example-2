@@ -6,17 +6,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/hello")
+import com.techprimers.aws.Student;
+
 @RestController
 public class HelloController {
 
-    @GetMapping
-    public ResponseEntity<HelloMessage>  hello() {
-    	HelloMessage helloMessage = new HelloMessage();
-    	helloMessage.setName("hello world");
-    	helloMessage.setTime(System.currentTimeMillis());
-		return ResponseEntity.status(HttpStatus.OK).body(helloMessage);
+	@RequestMapping("/")
+    public String getMessage(){
+		return "Hello World";
+	}
+	@RequestMapping("/student")
+	public Student getStudent(){
+		return new Student("shahid",30,"germany");
+	}
 
     }
 
-}
