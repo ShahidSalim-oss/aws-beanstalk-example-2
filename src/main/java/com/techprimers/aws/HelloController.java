@@ -11,13 +11,13 @@ import com.techprimers.aws.Student;
 @RestController
 public class HelloController {
 
-	@RequestMapping("/")
-    public String getMessage(){
-		return "Hello World";
+     @RequestMapping("/")
+     public String getMessage(){
+	return "Hello World";
 	}
-	@RequestMapping("/student")
-	public Student getStudent(){
-		return new Student("shahid",30,"germany");
+     @RequestMapping("/student")
+     public Student getStudent(){
+	return new Student("shahid",30,"germany");
 	}
 
     }
