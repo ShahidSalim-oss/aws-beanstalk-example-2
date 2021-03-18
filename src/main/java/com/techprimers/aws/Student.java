@@ -31,7 +31,7 @@ public class Student {
 		this.age = age;
 	}
 	public String getCountry(){
-		return country;
+		return countryd;
 	}
 
 	public void setCountry(String country){
