@@ -1,24 +1,42 @@
 package com.techprimers.aws;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+public class Student {
 
-import com.techprimers.aws.Student;
+	private String name;
 
-@RestController
-public class HelloController {
+	private int age;
 
-	@RequestMapping("/")
-    public String getMessage(){
-		return "Hello World";
-	}
-	@RequestMapping("/student")
-	public Student getStudent(){
-		return new Student("shahid",30,"germany");
+	private String country;
+
+	public Student(String name, int age, String country){
+		super();
+		this.name = name;
+		this.age = age;
+		this.country = country;
 	}
 
-    }
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
 
+		this.name = name;
+	}
+	public int getAge() {
+
+		return age;
+	}
+	public void setAge(int age) {
+
+		this.age = age;
+	}
+	public String getCountry(){
+		return country;
+	}
+
+	public void setCountry(String country){
+		this.country = country;
+	}
+	
+	
+}
