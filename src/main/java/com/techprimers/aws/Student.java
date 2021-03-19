@@ -7,12 +7,15 @@ public class Student {
 	private int age;
 
 	private String country;
+	
+	private long random;
 
-	public Student(String name, int age, String country){
+	public Student(String name, int age, String country, long random){
 		super();
 		this.name = name;
 		this.age = age;
 		this.country = country;
+		this.random = random;
 	}
 
 	public String getName() {
@@ -37,6 +40,16 @@ public class Student {
 	public void setCountry(String country){
 		this.country = country;
 	}
+
+	public long getRandom() {
+		return random;
+	}
+
+	public void setRandom(long random) {
+		this.random = random;
+	}
+	
+	
 	
 	
 }
