@@ -8,7 +8,10 @@ phases:
   build:
     commands:
       - echo "Entered build phase"
-      - mvn clean package
+      - docker build -t test/javatest:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - docker push 774025244507.dkr.ecr.us-east-1.amazonaws.com/test/javatest:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - sed ${tag}/$CODEBUILD_RESOLVED_SOURCE_VERSION ./Dockerrun.aws.json
+     # - mvn clean package
   post_build:
     commands:
       - echo "Entered the post-build phase"
