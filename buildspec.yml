@@ -15,5 +15,5 @@ phases:
       - mv target/aws-elastic-beanstalk-example-2-0.0.1-SNAPSHOT.jar ./
 artifacts:
   files:
-    - ./aws-elastic-beanstalk-example-2-0.0.1-SNAPSHOT.jar
+    - ./Dockerrun.aws.json
     
