@@ -1,26 +1,14 @@
-# This file controls the AWS CodeBuild
-
 version: 0.2
+
 phases:
-  pre_build:
+  install:
     commands:
-      - echo "Entered the pre-build phase"
-      - echo Logging in to Amazon ECR...
       - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
       - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
+  pre_build:
+    commands:
+      - docker build -t helloworld .
   build:
     commands:
-      - echo "Entered build phase"
-      - docker build -t test/javatest:$CODEBUILD_RESOLVED_SOURCE_VERSION .
-      - docker push 774025244507.dkr.ecr.us-east-1.amazonaws.com/test/javatest:$CODEBUILD_RESOLVED_SOURCE_VERSION
-      - sed ${tag}/$CODEBUILD_RESOLVED_SOURCE_VERSION ./Dockerrun.aws.json
-     # - mvn clean package
-  post_build:
-    commands:
-      - echo "Entered the post-build phase"
-      #- mv target/aws-elastic-beanstalk-example-2-0.0.1-SNAPSHOT.jar ./
-      - echo $CODEBUILD_RESOLVED_SOURCE_VERSION
-artifacts:
-  files:
-    - ./Dockerrun.aws.json
-    
+      - docker images
+      - docker run helloworld echo "Hello, World!"
